@@ -58,7 +58,9 @@ jobs:
       - name: Remove old containers
         run: |
           docker container rm -f express-mongo  
-          docker container rm -f mongo      
+          docker container rm -f mongo 
+          docker container rm -f db-fixture 
+          docker container rm -f frontend-angular    
       - name: Create env file
         run: |
           touch .env
