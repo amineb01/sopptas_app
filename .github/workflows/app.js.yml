@@ -56,11 +56,7 @@ jobs:
           repository: amineb01/sopptas_app
 
       - name: Remove old containers
-        run: |
-          docker container rm -f express-mongo  
-          docker container rm -f mongo 
-          docker container rm -f db-fixture 
-          docker container rm -f frontend-angular    
+        run: docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)
       - name: Create env file
         run: |
           touch .env
